@@ -25,7 +25,7 @@ export const count = (start, end, callback) => {
     }, 100);
 
     return function () { 
-        _cancelIntervall(intervall);
+       return _cancelIntervall(intervall);
      };
 };
 
