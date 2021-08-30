@@ -10,22 +10,21 @@
  */
 
 
-const _cancelIntervall = (intervall) => clearInterval(intervall);
+ const _cancelIntervall = (intervall) => clearInterval(intervall);
 
-export const count = (start, end, callback) => {
-    let counter = start;
-    let intervall = null;
-
-    intervall = setInterval(() => {
-        if (counter === end) {
-            _cancelIntervall(intervall);
-        }
-        callback(counter);
-        counter++;
-    }, 100);
-
-    return function () { 
-       return _cancelIntervall(intervall);
-     };
-};
-
+ export const count = (start, end, callback) => {
+     let counter = start;
+     let intervall = null;
+ 
+     intervall = setInterval(() => {
+         if (counter === end) {
+             _cancelIntervall(intervall);
+         }
+         callback(counter);
+         counter++;
+     }, 100);
+ 
+     return ()=>_cancelIntervall(intervall);
+ };
+ 
+ 
